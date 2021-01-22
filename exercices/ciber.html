@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <script>
+
+            // EXERCISE 1
+            console.log("Hello World!");
+
+            // EXERCISE 2
+            alert("Pau Garcia");
+
+            // EXERCISE 3
+            const myName = "Pau";
+            const myMiddleName = "Garcia";
+            console.log(myName + " " + myMiddleName);
+
+            // EXERCISE 4
+            let number1 = 43
+            let number2 = 22
+            console.log("The result of " + number1 + " plus " + number2 + " is: " + parseInt(number1 + number2));
+
+            // EXERCISE 5 
+            const examMark = prompt("Which mark have you got on the exam?", "");
+            if (examMark >= 5) {
+                console.log("Your mark is: " + examMark + " Congrats! You've passed the exam");
+            } else {
+                console.log("Your mark is: " + examMark + " You've failed... Next time!");
+            }
+
+            // EXERCISE 6
+            const sentence = "Tinc un cotxe de color blau";
+            console.log(sentence.replace("blau", "verd"));
+            console.log(sentence.replaceAll("o", "u"));
+
+            // EXERCISE 7
+            const objects = ["taula", "cadira", "ordinador", "llibreta"];
+            for (i = 0; i < objects.length; i++) {
+                console.log("L'objecte " + objects[i] + " està a la posició " + i);
+            }
+
+            // EXERCISE 8   
+            function calculator(operator, value1, value2) {
+                if (operator = "add") {
+                    return parseInt(value1 + value2);
+                }
+            }
+
+            console.log(calculator("add", 40, 20));
+
+        
+
+
+        </script>
+
+    </body>
+
+</html>
