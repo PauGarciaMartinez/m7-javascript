@@ -49,12 +49,15 @@
 
             // EXERCISE 8   
             function calculator(operator, value1, value2) {
-                if (operator = "add") {
+                if (operator === "add") {
                     return parseInt(value1 + value2);
+                } else if (operator === "substract") {
+                    return value1 - value2;
+                } else if (operator === "multiply") {
+                    return value1 * value2;
                 }
             }
-
-            console.log(calculator("add", 40, 20));
+            console.log(calculator("multiply", 4, 2)); // example
 
         
 
