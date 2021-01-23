@@ -33,4 +33,13 @@ function operate(operator, value1, value2) {
         return divide(value1, value2);
     }
 }
-console.log(operate("substract", 28, 6)); // example
+console.log(operate("substract", 28, 6)); 
+
+
+// SET VALUES ON DISPLAY SCREEN CLICKING BUTTONS
+
+const screen = document.querySelector("display-screen");
+const btn = document.querySelector("#one");
+btn.addEventListener("click", () => {
+  alert("Hey");
+});

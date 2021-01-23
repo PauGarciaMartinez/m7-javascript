@@ -1,0 +1,150 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas: "display-screen" "operations";
+  row-gap: 2rem;
+  max-width: 20rem;
+  margin: 0 auto;
+  height: 30rem;
+  padding: 1rem;
+  background-color: #1b1a1a;
+  border-radius: 1rem;
+}
+
+.display-container {
+  grid-area: display-screen;
+  display: grid;
+  grid-row: 1fr 1fr;
+  justify-content: end;
+  align-items: center;
+  background-color: #3d3d3d;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.operations-container {
+  grid-area: operations;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: "clear clear delete divide" "seven eight nine add" "four five six substract" "one two three multiply" "zero zero equals equals";
+  gap: 0.5rem 0.5rem;
+}
+
+.display-previous {
+  margin-right: 1.5rem;
+}
+
+.display-screen {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 1.5rem;
+}
+
+button {
+  border-radius: 0.7rem;
+  border: none;
+  background-color: #cccccc;
+  font-size: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.num-btn:hover {
+  background-color: white;
+}
+
+.op-btn:hover {
+  background-color: #80c9db;
+}
+
+.eq-btn:hover {
+  background-color: #83db80;
+}
+
+.cl-btn:hover {
+  background-color: #db80a6;
+}
+
+.del-btn:hover {
+  background-color: #db80a6;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+#one {
+  grid-area: one;
+}
+
+#two {
+  grid-area: two;
+}
+
+#three {
+  grid-area: three;
+}
+
+#four {
+  grid-area: four;
+}
+
+#five {
+  grid-area: five;
+}
+
+#six {
+  grid-area: six;
+}
+
+#seven {
+  grid-area: seven;
+}
+
+#eight {
+  grid-area: eight;
+}
+
+#nine {
+  grid-area: nine;
+}
+
+#add {
+  grid-area: add;
+}
+
+#substract {
+  grid-area: substract;
+}
+
+#multiply {
+  grid-area: multiply;
+}
+
+#divide {
+  grid-area: divide;
+}
+
+#equals {
+  grid-area: equals;
+}
+
+#clear {
+  grid-area: clear;
+}
+
+#delete {
+  grid-area: delete;
+}
+
+/*# sourceMappingURL=style.css.map */
