@@ -41,6 +41,8 @@ const del = document.getElementById("delete");
 addOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
         return;
+    } else if (number == "") {
+        return; 
     } else {
         if (substraction == true) {
             count = count - number;
@@ -66,6 +68,8 @@ addOperator.addEventListener("click", (e) => {
 
 substractOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
+        return;
+    } else if (number == "") {
         return;
     } else {
         if (addition == true) {
@@ -96,6 +100,8 @@ substractOperator.addEventListener("click", (e) => {
 
 multiplyOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
+        return;
+    } else if (number == "") {
         return;
     } else {
         if (addition == true) {
@@ -132,6 +138,8 @@ multiplyOperator.addEventListener("click", (e) => {
 
 divideOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
+        return;
+    } else if (number == "") {
         return;
     } else {
         if (addition == true) {
@@ -171,6 +179,8 @@ divideOperator.addEventListener("click", (e) => {
 
 result.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
+        return;
+    } else if (number == "") {
         return;
     } else {
         if (addition == true) {
