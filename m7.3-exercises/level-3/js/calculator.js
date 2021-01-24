@@ -23,21 +23,28 @@ const displayNumber = document.querySelectorAll('.num-btn').forEach(target => {
         screen.textContent = number + target.value;
         number = screen.textContent;
     })
-  })
+  });
 // Operator selectors
 const addOperator = document.getElementById("add");
 const substractOperator = document.getElementById("substract");
 const multiplyOperator = document.getElementById("multiply");
 const divideOperator = document.getElementById("divide");
-// 
+// Result, clear and delete selectors
 const result = document.getElementById("equals");
 const clear = document.getElementById("clear");
+const del = document.getElementById("delete");
 
 // OPERATION FUNCTIONS
 
 addOperator.addEventListener("click", (e) => {
     if (substraction == true) {
         count = count - number;
+        screen.textContent = count;
+    } else if (multiplication == true) {
+        count = count * number;
+        screen.textContent = count;
+    } else if (division == true) {
+        count = count / number;
         screen.textContent = count;
     } else {
         count = count + parseInt(number);
@@ -46,12 +53,20 @@ addOperator.addEventListener("click", (e) => {
     number = "";
     addition = true;
     substraction = false;
+    multiplication = false;
+    division = false;
     first = false;
-})
+});
 
 substractOperator.addEventListener("click", (e) => {
-    if (addition == true) { //oju que si sumo abans aquí ho compta com a suma
+    if (addition == true) {
         count = count + parseInt(number);
+        screen.textContent = count;
+    } else if (multiplication == true) {
+        count = count * number;
+        screen.textContent = count;
+    } else if (division == true) {
+        count = count / number;
         screen.textContent = count;
     } else {
         if (first == true) {
@@ -61,13 +76,77 @@ substractOperator.addEventListener("click", (e) => {
             screen.textContent = count;
         }   
     }
-    first = false;
     number = "";
-    addition = false;
     substraction = true;
-})
+    addition = false;
+    multiplication = false;
+    division = false;
+    first = false;
+});
 
+multiplyOperator.addEventListener("click", (e) => {
+    if (addition == true) {
+        count = count + parseInt(number);
+        screen.textContent = count;
+    } else if (substraction == true) {
+        count = count - number;
+        screen.textContent = count;
+    } else if (division == true) {
+        count = count / number;
+        screen.textContent = count;
+    } else {
+        if (multiplication == true) {
+            count = count * number;
+            screen.textContent = count;
+        } else {
+            if (first == true) {
+                count = count + parseInt(number);
+                screen.textContent = count;  
+            } else {
+                count = count * number;
+                screen.textContent = count;
+            }
+        }
+    }
+    number = "";
+    multiplication = true;
+    addition = false;
+    substraction = false;
+    division = false;
+    first = false;
+});
 
+divideOperator.addEventListener("click", (e) => {
+    if (addition == true) {
+        count = count + parseInt(number);
+        screen.textContent = count;
+    } else if (substraction == true) {
+        count = count - number;
+        screen.textContent = count;
+    } else if (multiplication == true) {
+        count = count * number;
+        screen.textContent = count;
+    } else {
+        if (division == true) {
+            count = count / number;
+            screen.textContent = count;
+        } else {
+            if (first == true) {
+                count = count + parseInt(number);
+                screen.textContent = count;  
+            } else {
+                count = count / number;
+                screen.textContent = count;
+            }
+        }
+    }
+    number = "";
+    division = true;
+    addition = false;
+    substraction = false;
+    multiplication = false;
+    first = false;
+});
 
 
 // RESULT FUNCTION
@@ -78,13 +157,18 @@ result.addEventListener("click", (e) => {
     } else if (substraction == true) {
         screen.textContent = count - number;
     } else if (multiplication == true) {
-        screen.textContent = count;
+        screen.textContent = count * number;
     } else if (division == true) {
-        screen.textContent = count;
+        screen.textContent = count / number;
     }
     count = parseInt(screen.textContent);
     number = 0;
-})
+    addition = false;
+    substraction = false;
+    multiplication = false; 
+    division = false;
+    first = true;
+});
 
 
 
@@ -94,48 +178,7 @@ clear.addEventListener("click", (e) => {
     first = true;
     addition = false;
     substraction = false;
+    multiplication = false;
+    division = false;
     screen.textContent = count;
-})
-
-
-
-
-// OPERATOR FUNCTIONS
-
-function add(value1, value2) {
-    return parseInt(value1 + value2);
-}
-
-function substract(value1, value2) {
-    return value1 - value2;
-}
-
-function multiply(value1, value2) {
-    return value1 * value2;
-}
-
-function divide(value1, value2) {
-    if (value2 === 0) {
-        return "Stop joking, plz";
-    } else {
-        return value1 / value2;
-    }
-}
-
-// OPERATION FUNCTION
-
-function operate(operator, value1, value2) {
-    if (operator === "add") {
-        return add(value1, value2);
-    } else if (operator === "substract") {
-        return substract(value1, value2);
-    } else if (operator === "multiply") {
-        return multiply(value1, value2);
-    } else if (operator === "divide") {
-        return divide(value1, value2);
-    }
-}
-console.log(operate("substract", 28, 6)); 
-
-
-
+});
