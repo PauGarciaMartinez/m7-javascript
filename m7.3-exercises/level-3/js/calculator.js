@@ -16,7 +16,7 @@ let first = true;
 
 // DOM
 
-// Screen selector
+// Screen selectors
 const screen = document.querySelector(".display-screen"); 
 const stackScreen = document.querySelector(".display-previous");
 // Operand selectors
@@ -31,18 +31,15 @@ const addOperator = document.getElementById("add");
 const substractOperator = document.getElementById("substract");
 const multiplyOperator = document.getElementById("multiply");
 const divideOperator = document.getElementById("divide");
-// Result, clear and delete selectors
+// Result and clear selectors
 const result = document.getElementById("equals");
 const clear = document.getElementById("clear");
-const del = document.getElementById("delete");
 
 // OPERATION FUNCTIONS
 
 addOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
         return;
-    } else if (number == "") {
-        return; 
     } else {
         if (substraction == true) {
             count = count - number;
@@ -54,7 +51,7 @@ addOperator.addEventListener("click", (e) => {
             count = count / number;
             screen.textContent = count;
         } else {
-            count = count + parseInt(number);
+            count = count + parseFloat(number);
             screen.textContent = count;
         }
     }
@@ -69,11 +66,9 @@ addOperator.addEventListener("click", (e) => {
 substractOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
         return;
-    } else if (number == "") {
-        return;
     } else {
         if (addition == true) {
-            count = count + parseInt(number);
+            count = count + parseFloat(number);
             screen.textContent = count;
         } else if (multiplication == true) {
             count = count * number;
@@ -83,7 +78,7 @@ substractOperator.addEventListener("click", (e) => {
             screen.textContent = count;
         } else {
             if (first == true) {
-                count = count + parseInt(number);
+                count = count + parseFloat(number);
             } else {
                 count = count - number;
                 screen.textContent = count;
@@ -101,11 +96,9 @@ substractOperator.addEventListener("click", (e) => {
 multiplyOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
         return;
-    } else if (number == "") {
-        return;
     } else {
         if (addition == true) {
-            count = count + parseInt(number);
+            count = count + parseFloat(number);
             screen.textContent = count;
         } else if (substraction == true) {
             count = count - number;
@@ -119,7 +112,7 @@ multiplyOperator.addEventListener("click", (e) => {
                 screen.textContent = count;
             } else {
                 if (first == true) {
-                    count = count + parseInt(number);
+                    count = count + parseFloat(number);
                     screen.textContent = count;  
                 } else {
                     count = count * number;
@@ -139,11 +132,9 @@ multiplyOperator.addEventListener("click", (e) => {
 divideOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
         return;
-    } else if (number == "") {
-        return;
     } else {
         if (addition == true) {
-            count = count + parseInt(number);
+            count = count + parseFloat(number);
             screen.textContent = count;
         } else if (substraction == true) {
             count = count - number;
@@ -157,7 +148,7 @@ divideOperator.addEventListener("click", (e) => {
                 screen.textContent = count;
             } else {
                 if (first == true) {
-                    count = count + parseInt(number);
+                    count = count + parseFloat(number);
                     screen.textContent = count;  
                 } else {
                     count = count / number;
@@ -180,11 +171,11 @@ divideOperator.addEventListener("click", (e) => {
 result.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
         return;
-    } else if (number == "") {
-        return;
+    } else if (count == 0) {
+        return; 
     } else {
         if (addition == true) {
-            screen.textContent = count + parseInt(number);
+            screen.textContent = count + parseFloat(number);
         } else if (substraction == true) {
             screen.textContent = count - number;
         } else if (multiplication == true) {
@@ -193,7 +184,7 @@ result.addEventListener("click", (e) => {
             screen.textContent = count / number;
         }
     }
-    count = parseInt(screen.textContent);
+    count = parseFloat(screen.textContent);
     number = 0;
     addition = false;
     substraction = false;
@@ -213,9 +204,3 @@ clear.addEventListener("click", (e) => {
     screen.textContent = count;
     stackScreen.textContent = "";
 });
-
-/* NEED TO CHECK HOW IT WORKS
-del.addEventListener("click", (e) => {
-    screen.textContent = screen.textContent.slice(0, -1);
-})
-*/
