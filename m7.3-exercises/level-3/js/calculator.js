@@ -15,15 +15,21 @@ let first = true;
 
 // DOM
 
+// Screen selector
 const screen = document.querySelector(".display-screen"); 
+// Operand selectors
 const displayNumber = document.querySelectorAll('.num-btn').forEach(target => {
     target.addEventListener('click', (e) => {
         screen.textContent = number + target.value;
         number = screen.textContent;
     })
   })
+// Operator selectors
 const addOperator = document.getElementById("add");
 const substractOperator = document.getElementById("substract");
+const multiplyOperator = document.getElementById("multiply");
+const divideOperator = document.getElementById("divide");
+// 
 const result = document.getElementById("equals");
 const clear = document.getElementById("clear");
 
@@ -44,22 +50,25 @@ addOperator.addEventListener("click", (e) => {
 })
 
 substractOperator.addEventListener("click", (e) => {
-    if (first == true) {
-        if (addition == true) { //oju que si sumo abans aquí ho compta com a suma
+    if (addition == true) { //oju que si sumo abans aquí ho compta com a suma
+        count = count + parseInt(number);
+        screen.textContent = count;
+    } else {
+        if (first == true) {
             count = count + parseInt(number);
-            screen.textContent = count;
         } else {
             count = count - number;
             screen.textContent = count;
-        }
-    } else {
-        screen.textContent = count;
-        first = false;
+        }   
     }
+    first = false;
     number = "";
     addition = false;
     substraction = true;
 })
+
+
+
 
 // RESULT FUNCTION
 
@@ -80,8 +89,11 @@ result.addEventListener("click", (e) => {
 
 
 clear.addEventListener("click", (e) => {
-    number = 0;
+    number = "";
     count = 0;
+    first = true;
+    addition = false;
+    substraction = false;
     screen.textContent = count;
 })
 
