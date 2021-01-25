@@ -3,7 +3,6 @@
 // To store selected numbers and stack them
 let number = "";
 let count = 0;
-let stack = "";
 
 // To check which operation it's been requested
 let addition = false
@@ -16,14 +15,22 @@ let first = true;
 
 // DOM
 
-// Screen selectors
+// Screen selector
 const screen = document.querySelector(".display-screen"); 
-const stackScreen = document.querySelector(".display-previous");
 // Operand selectors
 const displayNumber = document.querySelectorAll('.num-btn').forEach(target => {
     target.addEventListener('click', (e) => {
-        screen.textContent = number + target.value;
-        number = screen.textContent;
+        if (target.value == "." && number.includes(".")) {
+            return;
+        } else if (number === 0 || screen.textContent === "Stop joking, plz") {
+            count = 0;
+            number = "";
+            screen.textContent = number + target.value;
+            number = screen.textContent;
+        } else {
+            screen.textContent = number + target.value;
+            number = screen.textContent;
+        } 
     })
   });
 // Operator selectors
@@ -39,6 +46,8 @@ const clear = document.getElementById("clear");
 
 addOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
+        return;
+    } else if (number == "" && first == false) {
         return;
     } else {
         if (substraction == true) {
@@ -65,6 +74,8 @@ addOperator.addEventListener("click", (e) => {
 
 substractOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
+        return;
+    } else if (number == "" && first == false) {
         return;
     } else {
         if (addition == true) {
@@ -95,6 +106,8 @@ substractOperator.addEventListener("click", (e) => {
 
 multiplyOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
+        return;
+    } else if (number == "" && first == false) {
         return;
     } else {
         if (addition == true) {
@@ -131,6 +144,8 @@ multiplyOperator.addEventListener("click", (e) => {
 
 divideOperator.addEventListener("click", (e) => {
     if (number == "" && count == 0) {
+        return;
+    } else if (number == "" && first == false) {
         return;
     } else {
         if (addition == true) {
@@ -173,6 +188,8 @@ result.addEventListener("click", (e) => {
         return;
     } else if (count == 0) {
         return; 
+    } else if (number == "" && first == false) {
+        return;
     } else {
         if (addition == true) {
             screen.textContent = count + parseFloat(number);
