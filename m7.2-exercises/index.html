@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <script>
+
+            // EXERCISE 1
+            const myName = ["P", "A", "U"];
+            for (i = 0; i < 3; i++) {
+                console.log(myName[i]);
+            }
+
+            // EXERCISE 2
+            const myName2 = ["P", "A", "U"];
+            const vowels = /[aeiou]/i;
+            const consonants = /[^aeiou]/i;
+            const numbers = /[0-9]/;
+            
+            for (i = 0; i < 3; i++) {
+                if (myName2[i].match(vowels)) {
+                    console.log("I've found the vowel: " + myName2[i]);
+                } else if (myName2[i].match(consonants)) {
+                    console.log("I've found the consonant: " + myName2[i]);
+                } else if (myName2[i].match(numbers)) {
+                    console.log("Dude, this is a number... wtf: " + myName2[i]);
+                }
+            }
+
+            // EXERCISE 3
+            let myName3 = new Map([
+                ["P", 1],
+                ["A", 1],
+                ["U", 1],
+            ]);
+            /*
+            myName3.forEach( (value, key, map) =>{
+                console.log(`{key}: ${value}`);
+            }); */
+
+            let myName4 = ["P", "A", "U"]; let acc = myName4.reduce((acc, val) => acc.set(val, 1 + (acc.get(val) || 0)), new Map());
+
+            console.log(acc); // output: Map { 5 => 3, 2 => 5, 9 => 1, 4 => 1 }
+
+            // EXERCISE 4
+
+            // EXERCISE 5 
+
+            // EXERCISE 6
+            
+            // EXERCISE 7
+
+            // EXERCISE 8   
+            
+
+        </script>
+
+    </body>
+
+</html>
