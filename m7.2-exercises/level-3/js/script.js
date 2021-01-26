@@ -1,3 +1,34 @@
+// DOM 
+
+const button1 = document.getElementById("#exercise1");
+const button2 = document.getElementById("#exercise2");
+const button3 = document.getElementById("#exercise3");
+const button4 = document.getElementById("#exercise4");
+const button5 = document.getElementById("#exercise5");
+
+// FUNCTION TRIGGERS
+
+button1.addEventListener("click", (e) => {
+
+});
+
+button2.addEventListener("click", (e) => {
+
+});
+
+button3.addEventListener("click", (e) => {
+
+});
+
+button4.addEventListener("click", (e) => {
+
+});
+
+button5.addEventListener("click", (e) => {
+
+});
+
+
 // EXERCISE 1
 const myName = ["P", "A", "U"];
 for (i = 0; i < 3; i++) {
