@@ -1,0 +1,80 @@
+// GLOBAL SETTINGS
+
+html, 
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background-color: rgb(240, 221, 197);
+}
+
+// LAYOUT SETTINGS
+
+.wrapper {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.5fr repeat(4, 1fr);
+  grid-template-areas: 
+  "header header"
+  "sub-header sub-header"
+  "button1 button2"
+  "button3 button4"
+  "button5 button5"
+  ;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+// HEADER
+
+.header {
+  grid-area: header;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.sub-header {
+  grid-area: sub-header;
+  text-align: center;
+}
+
+// BUTTONS
+
+button {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+button:hover {
+    background-color: rgb(216, 171, 112);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.05, 1.05);
+}
+
+#exercise1 {
+  grid-area: button1;
+}
+#exercise2 {
+  grid-area: button2;
+}
+#exercise3 {
+  grid-area: button3;
+}
+#exercise4 {
+  grid-area: button4;
+}
+#exercise5 {
+  grid-area: button5;
+}
