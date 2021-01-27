@@ -13,9 +13,9 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1.5fr repeat(4, 1fr);
-  grid-template-areas: "header header" "sub-header sub-header" "button1 button2" "button3 button4" "button5 button5";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1.5fr 0.5fr 0.5fr 0.7fr 0.7fr 0.5fr 0.7fr auto;
+  grid-template-areas: "header header" "sub-header sub-header" "name middle-name" "button1 button2" "button3 button4" "find-mail find-mail" "button5 button5" "display display";
   justify-content: center;
   align-items: center;
   gap: 1rem;
@@ -26,11 +26,15 @@ body {
   font-size: 2.5rem;
   text-align: center;
   margin-top: 5rem;
+  color: #cf8c3f;
 }
 
 .sub-header {
   grid-area: sub-header;
   text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #68441c;
 }
 
 button {
@@ -40,12 +44,16 @@ button {
   border: none;
   outline: none;
   font-size: 1rem;
+  font-weight: 600;
+  background-color: #e9b67d;
+  color: #3b270f;
 }
 
 button:hover {
-  background-color: #d8ab70;
+  background-color: #d3913a;
   color: white;
   cursor: pointer;
+  font-size: 1.05rem;
   transform: scale(1.05, 1.05);
 }
 
@@ -67,6 +75,36 @@ button:hover {
 
 #exercise5 {
   grid-area: button5;
+}
+
+#name,
+#middle-name,
+#text-bulk {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+#name {
+  grid-area: name;
+}
+
+#middle-name {
+  grid-area: middle-name;
+}
+
+#text-bulk {
+  grid-area: find-mail;
+}
+
+.display-container {
+  grid-area: display;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

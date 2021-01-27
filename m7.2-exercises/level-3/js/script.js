@@ -5,63 +5,85 @@ const button2 = document.getElementById("exercise2");
 const button3 = document.getElementById("exercise3");
 const button4 = document.getElementById("exercise4");
 const button5 = document.getElementById("exercise5");
+const inputText = document.getElementById("name");
+const inputText2 = document.getElementById("middle-name");
+const inputText3 = document.getElementById("text-bulk");
+const display = document.querySelector(".display-container");
+const displayList = document.querySelector(".display-list");
 
-//FUNCTION DEFINITIONS
+// FUNCTION TRIGGERS
 
-function exercise1() {
-  const myName = ["P", "A", "U"];
-  for (i = 0; i < 3; i++) {
-    console.log(myName[i]);
+button1.addEventListener("click", (e) => spelling());
+
+button2.addEventListener("click", (e) => vowelOrConsonant());
+
+button3.addEventListener("click", (e) => occurrences());
+
+button4.addEventListener("click", (e) => join());
+
+button5.addEventListener("click", (e) => findEmail());
+
+// DISPLAY FUNCTIONS
+
+// To display the result on the bottom
+function displayResult(result) {
+  display.style.backgroundColor = "white";
+  let letter = document.createElement("li");
+  letter.textContent = result;
+  displayList.appendChild(letter);
+}
+
+// EXERCISE FUNCTIONS
+
+// Functions for every exercise
+
+function spelling() { 
+  const name = Array.from(inputText.value);
+  for (i = 0; i < name.length; i++) {
+    displayResult(name[i]);
   }
 };
 
-function exercise2() {
-  const myName2 = ["P", "A", "U"];
+function vowelOrConsonant() {
+  const name = Array.from(inputText.value);
   const vowels = /[aeiou]/i;
   const consonants = /[^aeiou]/i;
   const numbers = /[0-9]/;
   
-  for (i = 0; i < 3; i++) {
-    if (myName2[i].match(vowels)) {
-      console.log("I've found the vowel: " + myName2[i]);
-    } else if (myName2[i].match(consonants)) {
-      console.log("I've found the consonant: " + myName2[i]);
-    } else if (myName2[i].match(numbers)) {
-      console.log("Dude, this is a number... wtf: " + myName2[i]);
+  for (i = 0; i < name.length; i++) {
+    if (name[i].match(vowels)) {
+      displayResult("I've found the vowel: " + name[i]);
+    } else if (name[i].match(consonants)) {
+      displayResult("I've found the consonant: " + name[i]);
+    } else if (name[i].match(numbers)) {
+      displayResult("Dude, this is a number... wtf: " + name[i]);
     }
   } 
 };
 
-function exercise3() {
-  const myName3 = ["P", "A", "U"];
-    
-  // Method 1, using MAP
-  let acc = myName3.reduce((acc, val) => acc.set(val, 1 + (acc.get(val) || 0)), new Map());
+function occurrences() {
+  const name = Array.from(inputText.value);
 
-  console.log(acc);
-    
-  // Method 2, using an object
-  const acc2 = myName3.reduce((obj, item) => {
-    if (!obj[item]) {
-      obj[item] = 0;
-    }
-    obj[item]++;
-    return obj;
-  }, {});
+  let acc = name.reduce((acc, val) => acc.set(val, 1 + (acc.get(val) || 0)), new Map());
+  let acc2 = Array.from(acc);
 
-  console.log(acc2);
+  for (i = 0; i < acc2.length; i++) {
+    displayResult(acc2[i][0] + " : " + (acc2[i][1]));
+  }
 };
 
-function exercise4() {
-  const myName5 = ["P", "A", "U"];
-  const myMiddleName = ["G", "A", "R", "C", "I", "A"];
-  const fullName = myName5.concat(" ", myMiddleName);
-    
-  console.log(fullName);
+function join() {
+  const name = Array.from(inputText.value);
+  const middleName = Array.from(inputText2.value);
+  const fullName = name.concat(" ", middleName);
+
+  for (i = 0; i < fullName.length; i++) {
+    displayResult(fullName[i]);
+  }
 };
 
-function exercise5() {
-  const string = "Una dirección de correo electrónico es la dirección que utiliza para recibir y enviar correos electrónicos. Se muestra a los destinatarios de sus correos electrónicos para que sepan quién le envió un correo electrónico. Cada dirección de correo electrónico sólo se puede asignar una vez en todo el mundo y, por lo tanto, está disponible exclusivamente para usted. No puede cambiar las direcciones de correo electrónico, pero puede eliminarlas en cualquier momento. Una dirección de correo electrónico consiste en el signo @ (arroba), el nombre de usuario delante y el dominio detrás, por ejemplo, nombre-de-usuario@ionos.es: La parte del dominio depende del dominio bajo el cual se crea la dirección de correo electrónico: en nuestro ejemplo es ionos.es. Esta información varía de proveedor a proveedor, por lo que una parte del dominio también puede ser gmail.com o gmx.es si utiliza una dirección de correo electrónico de estos proveedores. Si ha registrado su propio dominio, por ejemplo, www.el-nombre-de-sus-sueños.es, las direcciones de correo electrónico que configura para el dominio lo tienen como parte del dominio (nombre-de-usuario@el-nombre-de-sus-sueños.es o nombre-de-usuario@el-nombre-de-sus-sueños.ES). El nombre de usuario es la parte de una dirección de correo electrónico que puede seleccionar libremente en la medida de lo posible. Puede, por ejemplo, utilizar su propio nombre o el nombre o departamento de una empresa. Si utiliza una dirección de correo electrónico con un proveedor de correo como gmail.com o gmx.es, es posible que la combinación con la parte del dominio deseada ya esté registrada. En este caso, deberá considerar alternativas para el nombre de usuario de su dirección de correo electrónico. Si utiliza su propio dominio, estas restricciones no se aplican porque sólo usted puede crear direcciones de correo electrónico que coincidan con su propio dominio. En resumen, nombre-de-usuario@ionos.es es un email"; 
+function findEmail() {
+  const string = inputText3.value; 
 
   // Regular expression to match with (almost) any kind of email
   const regex = /([a-zñ\d\.-]+)@([a-zñ\d\.-]+)\.([a-z]{2,8})/gi;
@@ -72,18 +94,7 @@ function exercise5() {
     const uniqueEmails = Array.from(new Set(allEmails));
     return uniqueEmails;
   }
-    
-  console.log(catchEmails(string));
+
+  displayResult(catchEmails(string));
 }
 
-// FUNCTION TRIGGERS
-
-button1.addEventListener("click", (e) => exercise1());
-
-button2.addEventListener("click", (e) => exercise2());
-
-button3.addEventListener("click", (e) => exercise3());
-
-button4.addEventListener("click", (e) => exercise4());
-
-button5.addEventListener("click", (e) => exercise5());
