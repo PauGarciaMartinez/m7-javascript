@@ -23,9 +23,21 @@ for (i = 0; i < 3; i++) {
 // EXERCISE 3
 const myName3 = ["P", "A", "U"]; 
 
+// Method 1, using MAP
 let acc = myName3.reduce((acc, val) => acc.set(val, 1 + (acc.get(val) || 0)), new Map());
 
 console.log(acc);
+
+// Method 2, using an object
+const acc2 = myName3.reduce((obj, item) => {
+    if (!obj[item]) {
+        obj[item] = 0;
+    }
+    obj[item]++;
+    return obj;
+}, {});
+
+console.log(acc2);
 
 // EXERCISE 4
 const myName5 = ["P", "A", "U"];
