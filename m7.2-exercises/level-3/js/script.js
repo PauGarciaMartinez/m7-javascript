@@ -32,7 +32,7 @@ function displayResult(result) {
   let letter = document.createElement("li");
   letter.textContent = result;
   displayList.appendChild(letter);
-}
+};
 
 // EXERCISE FUNCTIONS
 
@@ -76,6 +76,11 @@ function occurrences() {
 function join() {
   const name2 = Array.from(inputText4.value);
   const middleName = Array.from(inputText2.value);
+
+  if (inputText4.value === "" || inputText2.value === "") {
+    return;
+  }
+
   const fullName = name2.concat(" ", middleName);
 
   for (i = 0; i < fullName.length; i++) {
@@ -89,6 +94,10 @@ function findEmail() {
   // Regular expression to match with (almost) any kind of email
   const regex = /([a-zñ\d\.-]+)@([a-zñ\d\.-]+)\.([a-z]{2,8})/gi;
     
+  if (inputText3.value === "") {
+    return;
+  }
+
   // Store matches to an array and avoid duplicated values
   function catchEmails(string) {
     const allEmails = string.match(regex);
@@ -97,5 +106,4 @@ function findEmail() {
   }
 
   displayResult(catchEmails(string));
-}
-
+};
