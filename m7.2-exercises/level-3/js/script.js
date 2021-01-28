@@ -10,7 +10,6 @@ const inputText4 = document.getElementById("name2");
 const inputText2 = document.getElementById("middle-name");
 const inputText3 = document.getElementById("text-bulk");
 const display = document.querySelector(".display-container");
-const displayList = document.querySelector(".display-list");
 
 // FUNCTION TRIGGERS
 
@@ -27,25 +26,42 @@ button5.addEventListener("click", (e) => findEmail());
 // DISPLAY FUNCTIONS
 
 // To display the result on the bottom
-function displayResult(result) {
+function displayResult(result, displayList) {
   display.style.backgroundColor = "white";
+  display.appendChild(displayList);
   let letter = document.createElement("li");
   letter.textContent = result;
   displayList.appendChild(letter);
 };
+
+function removeList() {
+  let list = document.getElementById("list");
+  display.removeChild(list);
+};
+
+function createList() {
+  let displayList = document.createElement("ul");
+  displayList.setAttribute("id", "list");
+  display.appendChild(displayList);
+  return displayList;
+}
 
 // EXERCISE FUNCTIONS
 
 // Functions for every exercise
 
 function spelling() { 
+  removeList();
+  let displayList = createList();
   const name = Array.from(inputText.value);
   for (i = 0; i < name.length; i++) {
-    displayResult(name[i]);
+    displayResult(name[i], displayList);
   }
 };
 
 function vowelOrConsonant() {
+  removeList();
+  let displayList = createList();
   const name = Array.from(inputText.value);
   const vowels = /[aeiou]/i;
   const consonants = /[^aeiou]/i;
@@ -53,27 +69,33 @@ function vowelOrConsonant() {
   
   for (i = 0; i < name.length; i++) {
     if (name[i].match(vowels)) {
-      displayResult("I've found the vowel: " + name[i]);
+      displayResult("I've found the vowel: " + name[i], displayList);
     } else if (name[i].match(consonants)) {
-      displayResult("I've found the consonant: " + name[i]);
+      displayResult("I've found the consonant: " + name[i], displayList);
     } else if (name[i].match(numbers)) {
-      displayResult("Dude, this is a number... wtf: " + name[i]);
+      displayResult("Dude, this is a number... wtf: " + name[i], displayList);
     }
   } 
 };
 
 function occurrences() {
+  removeList();
+  let displayList = createList();
+
   const name = Array.from(inputText.value);
 
   let acc = name.reduce((acc, val) => acc.set(val, 1 + (acc.get(val) || 0)), new Map());
   let acc2 = Array.from(acc);
 
   for (i = 0; i < acc2.length; i++) {
-    displayResult(acc2[i][0] + " : " + (acc2[i][1]));
+    displayResult(acc2[i][0] + " : " + (acc2[i][1]), displayList);
   }
 };
 
 function join() {
+  removeList();
+  let displayList = createList();
+
   const name2 = Array.from(inputText4.value);
   const middleName = Array.from(inputText2.value);
 
@@ -84,11 +106,14 @@ function join() {
   const fullName = name2.concat(" ", middleName);
 
   for (i = 0; i < fullName.length; i++) {
-    displayResult(fullName[i]);
+    displayResult(fullName[i], displayList);
   }
 };
 
 function findEmail() {
+  removeList();
+  let displayList = createList();
+
   const string = inputText3.value; 
 
   // Regular expression to match with (almost) any kind of email
@@ -105,5 +130,5 @@ function findEmail() {
     return uniqueEmails;
   }
 
-  displayResult(catchEmails(string));
+  displayResult(catchEmails(string), displayList);
 };
