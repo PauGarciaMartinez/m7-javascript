@@ -18,7 +18,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1.5fr 0.5fr 0.5fr 0.7fr 0.5fr 0.5fr 0.5fr 0.7fr auto;
+  grid-template-rows: 1.5fr 0.5fr 0.5fr 0.7fr 0.5fr 0.7fr 0.5fr 0.7fr auto;
   grid-template-areas: 
   "header header header"
   "sub-header sub-header sub-header"

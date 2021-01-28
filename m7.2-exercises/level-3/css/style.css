@@ -14,7 +14,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1.5fr 0.5fr 0.5fr 0.7fr 0.5fr 0.5fr 0.5fr 0.7fr auto;
+  grid-template-rows: 1.5fr 0.5fr 0.5fr 0.7fr 0.5fr 0.7fr 0.5fr 0.7fr auto;
   grid-template-areas: "header header header" "sub-header sub-header sub-header" "name name name" "button1 button2 button3" "join join join" "button4 button4 button4" "find-mail find-mail find-mail" "button5 button5 button5" "display display display";
   justify-content: center;
   align-items: center;
