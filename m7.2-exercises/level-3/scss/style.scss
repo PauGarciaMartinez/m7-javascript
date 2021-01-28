@@ -17,17 +17,18 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1.5fr 0.5fr 0.5fr 0.7fr 0.7fr 0.5fr 0.7fr auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1.5fr 0.5fr 0.5fr 0.7fr 0.5fr 0.5fr 0.5fr 0.7fr auto;
   grid-template-areas: 
-  "header header"
-  "sub-header sub-header"
-  "name middle-name"
-  "button1 button2"
-  "button3 button4"
-  "find-mail find-mail"
-  "button5 button5"
-  "display display"
+  "header header header"
+  "sub-header sub-header sub-header"
+  "name name name"
+  "button1 button2 button3"
+  "join join join"
+  "button4 button4 button4"
+  "find-mail find-mail find-mail"
+  "button5 button5 button5"
+  "display display display"
   ;
   justify-content: center;
   align-items: center;
@@ -93,6 +94,7 @@ button:hover {
 // INPUT TEXT
 
 #name,
+#name2,
 #middle-name,
 #text-bulk {
   width: 100%;
@@ -107,12 +109,31 @@ button:hover {
   grid-area: name;
 }
 
+#name2  {
+  grid-area: name2;
+}
+
 #middle-name {
   grid-area: middle-name;
 }
 
 #text-bulk {
   grid-area: find-mail;
+}
+
+// JOIN CONTAINER
+
+.join-container {
+  grid-area: join;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "name2 middle-name";
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+  height: 100%;
+  width: 100%;
 }
 
 // DISPLAY CONTAINER

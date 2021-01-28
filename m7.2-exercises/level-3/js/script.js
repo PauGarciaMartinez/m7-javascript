@@ -6,6 +6,7 @@ const button3 = document.getElementById("exercise3");
 const button4 = document.getElementById("exercise4");
 const button5 = document.getElementById("exercise5");
 const inputText = document.getElementById("name");
+const inputText4 = document.getElementById("name2");
 const inputText2 = document.getElementById("middle-name");
 const inputText3 = document.getElementById("text-bulk");
 const display = document.querySelector(".display-container");
@@ -73,9 +74,9 @@ function occurrences() {
 };
 
 function join() {
-  const name = Array.from(inputText.value);
+  const name2 = Array.from(inputText4.value);
   const middleName = Array.from(inputText2.value);
-  const fullName = name.concat(" ", middleName);
+  const fullName = name2.concat(" ", middleName);
 
   for (i = 0; i < fullName.length; i++) {
     displayResult(fullName[i]);
