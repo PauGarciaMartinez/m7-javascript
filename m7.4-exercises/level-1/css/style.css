@@ -1,0 +1,75 @@
+html,
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  height: 100vh;
+  background-color: #f9f5fb;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "header" "stars";
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 60%;
+  margin: 0 auto;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: header;
+  flex-direction: column;
+}
+
+.stars-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: stars;
+  flex-direction: row-reverse;
+}
+
+.title {
+  font-size: 3rem;
+  color: #a56dda;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.8rem;
+  color: #471774;
+}
+
+.fa-star {
+  font-size: 4rem;
+  color: rgba(165, 109, 218, 0.205);
+}
+
+.fa-star:hover {
+  color: #471774;
+  text-shadow: 2px 2px 8px #a183bd;
+  cursor: pointer;
+}
+
+.fa-star:hover ~ .fa-star {
+  color: #471774;
+  text-shadow: 2px 2px 8px #a183bd;
+}
+
+.active {
+  color: #471774;
+  text-shadow: 2px 2px 8px #a183bd;
+}
+
+.active ~ .fa-star {
+  color: #471774;
+  text-shadow: 2px 2px 8px #a183bd;
+}
+
+/*# sourceMappingURL=style.css.map */
