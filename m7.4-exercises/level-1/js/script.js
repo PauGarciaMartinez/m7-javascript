@@ -21,11 +21,3 @@ function setInactive() {
 function setActive(target) {
     target.classList.add("active");
 }
-
-
-
-
-
-// 2. When I CLICK a star, change the color and all of the previous.
-
-// 3. When I CLICK anywhere else, the stars change to its original state. 
