@@ -5,20 +5,17 @@ const stars = document.querySelectorAll(".fa-star");
 // TRIGGER
 
 document.addEventListener("click", (e) => {
-    if (e.target.nodeName === "i") {
-        stars.forEach((target) => {
-            target.addEventListener("click", (e) => {
-                setInactive();
-                setActive(target);
-            })
-        })
-    } else {
+    if (!e.target.closest(".fa-star")) {
         setInactive();
     }
 })
 
-
-
+stars.forEach((target) => {
+    target.addEventListener("click", (e) => {
+        setInactive();
+        setActive(target);
+    })
+})
 
 // FUNCTIONS
 
@@ -30,9 +27,3 @@ function setInactive() {
 function setActive(target) {
     target.classList.add("active");
 }
-
-
-
-
-
-// 3. When I CLICK anywhere else, the stars change to its original state. 
