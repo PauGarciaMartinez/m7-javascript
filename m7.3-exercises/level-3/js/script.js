@@ -12,7 +12,7 @@ const searchForm = document.getElementById("search-form");
 const registerForm = document.getElementById("register-form");
 const loginForm = document.getElementById("login-form");
 
-const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-body");
 
 const emailRegex = /([a-zñ\d\.-]+)@([a-zñ\d\.-]+)\.([a-z]{2,8})/gi;
 const passwordRegex = /^(?=.*[ÑA-Z])(?=.*[0-9])(?=.{8,})/;
@@ -47,6 +47,7 @@ function checkInputsSearch() {
     setErrorFor(search, "Search must contain at least three characters");
   } else {
     setSuccessFor(search);
+    createContent("You've searched:", searchValue);
   }
 }
 
@@ -59,6 +60,7 @@ function checkInputsRegister() {
 
   if (email1Value.match(emailRegex)) {
     setSuccessFor(email1);
+    createContent("Email:", email1Value);
   } else {
     setErrorFor(email1, "Email is not valid");
   }
@@ -67,6 +69,7 @@ function checkInputsRegister() {
     setErrorFor(password1, "Password can't be blank");
   } else if (password1Value.match(passwordRegex)) {
     setSuccessFor(password1);
+    createContent("Password:", password1Value);
   } else {
     setErrorFor(password1, "Password must contain at least eigth characters, including one uppercase and one digit");
   }
@@ -83,6 +86,7 @@ function checkInputsRegister() {
     setErrorFor(province, "Please select an option");
   } else {
     setSuccessFor(province);
+    createContent("Province:", provinceValue);
   }
 }
 
@@ -93,6 +97,7 @@ function checkInputsLogin() {
 
   if (email2Value.match(emailRegex)) {
     setSuccessFor(email2);
+    createContent("Email:", email2Value);
   } else {
     setErrorFor(email2, "Email is not valid");
   }
@@ -103,6 +108,7 @@ function checkInputsLogin() {
     setErrorFor(password3, "Incorrect password");
   } else {
     setSuccessFor(password3);
+    createContent("Password:", password3Value);
   }
 }
 
@@ -123,6 +129,8 @@ function setSuccessFor(input) {
 }
 
 // MODAL FUNCTIONS
+
+// Validate Search
 function validateSearch() {
   const searchVal = document.getElementById("search-form-val");
   if (searchVal.classList.contains("sucess")) {
@@ -130,6 +138,7 @@ function validateSearch() {
   }
 }
 
+// Validate Register
 function validateRegister() {
   const emailVal = document.getElementById("email-val");
   const password1Val = document.getElementById("password1-val");
@@ -141,6 +150,7 @@ function validateRegister() {
   }
 }
 
+// Validate Login
 function validateLogin() {
   const email2Val = document.getElementById("email2-val");
   const password3Val = document.getElementById("password3-val");
@@ -148,4 +158,11 @@ function validateLogin() {
   if (email2Val.classList.contains("sucess") && password3Val.classList.contains("sucess")) {
     $(".modal").modal("show");
   }
+}
+
+// Modal content
+function createContent(line, value) {
+  const inputText = document.createElement("p");
+  inputText.textContent = `${line} ${value}`;
+  modalContent.appendChild(inputText);
 }
