@@ -5,11 +5,44 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/script.js" defer></script>
+        <title>Add a product</title>
     </head>
 
     <body>
         
+        <header class="header-container">
+            <h1 class="title">Product App</h1>
+            <p class="subtitle">Pick anything you need</p>
+        </header>
+
+        <div class="wrapper">
+
+            <section class="feedback-container">
+                <p class="feedback"></p>
+            </section>
+
+            <form class="product-form" action="" method="get">
+                <h2>Add a product</h2>
+                <label for="name"></label>
+                <input type="text" id="name" name="name" placeholder="Product Name">
+                <label for="price"></label>
+                <input type="text" id="price" name="price" placeholder="Product Price">
+                <label for="year"></label>
+                <input type="text" id="year" name="year" placeholder="Product Year">
+                <button type="submit">Save</button>
+            </form>
+
+            <section class="list-container">
+                <article class="product-container">
+                    <p class="product">Some random stuff</p>
+                    <button type="button" class="delete-btn">Delete</button>
+                </article>
+            </section>
+
+        </div>
+     
     </body>
 
 </html>
