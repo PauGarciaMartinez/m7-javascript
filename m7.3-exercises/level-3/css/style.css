@@ -1,0 +1,43 @@
+html,
+body {
+  margin: 0;
+  background-color: #f6f7ff;
+  font-family: Helvetica, sans-serif;
+}
+
+h1 {
+  color: #3c5bb6;
+  font-weight: 700;
+}
+
+h2 {
+  color: #7a97ec;
+  font-weight: 700;
+}
+
+small {
+  visibility: hidden;
+}
+
+.error small {
+  visibility: visible;
+  color: #e07e7e;
+}
+
+.sucess input {
+  border: 2px solid #79db79;
+}
+
+.error input {
+  border: 2px solid #e07e7e;
+}
+
+.sucess select {
+  border: 2px solid #79db79;
+}
+
+.error select {
+  border: 2px solid #e07e7e;
+}
+
+/*# sourceMappingURL=style.css.map */

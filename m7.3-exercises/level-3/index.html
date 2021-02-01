@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b5988d5d8d.js" crossorigin="anonymous"></script>
+    <script defer src="js/script.js"></script>
+    <title>Validation forms</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row mt-3 pt-4 pb-4">
+        <div class="col">
+          <h1 class="text-center">Form validation</h1>
+        </div>
+      </div>
+      <!-- SEARCH FORM -->
+      <div class="row mt-3 justify-content-center">
+        <div class="col-md-6">
+          <h2 class="mb-4">Search</h2>
+          <form id="search-form" novalidate>    
+            <div id="search-form-val" class="form-inline">
+              <input class="form-control mr-sm-2" type="search" id="inputSearch" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+              <small class="pl-2">Error message</small>
+            </div>
+          </form> 
+        </div>
+      </div>
+      <!-- REGISTER FORM -->
+      <div class="row mt-5 justify-content-center">
+        <div class="col-md-6">
+          <form id="register-form" novalidate>
+            <h2 class="mb-4">Register</h2>
+            <div id="email-val" class="form-group">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+              <small>Error message</small>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div id="password1-val" class="form-group col-md-6">
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  <small>Error message</small>
+                </div>
+                <div id="password2-val" class="form-group col-md-6">
+                  <label for="inputPassword4">Repeat password</label>
+                  <input type="password" class="form-control" id="inputPassword2" placeholder="Repeat password">
+                  <small>Error message</small>
+                </div>
+              </div>
+            </div>
+            <div id="select-val" class="form-group">
+              <label class="my-1 mr-2" for="inputSelect">Province</label>
+              <select class="custom-select my-1 mr-sm-2" id="inputSelect">
+                <option value="" selected>Choose...</option>
+                <option value="1">Barcelona</option>
+                <option value="2">Tarragona</option>
+                <option value="3">Girona</option>
+                <option value="4">Lleida</option>
+              </select>
+              <small>Error message</small>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Sign up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- LOGIN FORM -->
+      <div class="row mt-5 pb-5 justify-content-center">
+        <div class="col-md-6">
+          <form id="login-form" novalidate>
+            <h2 class="mb-4">Login</h2>
+            <div id="email2-val" class="form-group">
+              <label for="inputEmail2">Email</label>
+              <input type="email" class="form-control" id="inputEmail2" placeholder="Email">
+              <small>Error message</small>
+            </div>
+            <div id="password3-val" class="form-group">
+              <label for="inputPassword3">Password</label>
+              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              <small>Error message</small>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="inputCheck">
+                <label class="form-check-label" for="inputCheck">Remember me</label>
+                <small>Error message</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- MODAL WINDOW -->
+      <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmed data</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="modal-content"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
+
+
+

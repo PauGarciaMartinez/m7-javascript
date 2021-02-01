@@ -1,0 +1,53 @@
+// VARIABLES
+
+$greenBorder: 2px solid rgb(121, 219, 121);
+$redBorder: 2px solid rgb(224, 126, 126);
+
+
+// GLOBAL SETTINGS
+
+html, 
+body {
+  margin: 0;
+  background-color: rgb(246, 247, 255);
+  font-family: Helvetica, sans-serif;
+}
+
+// SECTION SETTINGS
+
+h1 {
+  color: rgb(60, 91, 182);
+  font-weight: 700;
+}
+
+h2 {
+  color: rgb(122, 151, 236);
+  font-weight: 700;
+}
+
+small {
+  visibility: hidden;
+}
+
+// VALIDITY SETTINGS
+
+.error small {
+  visibility: visible;
+  color:rgb(224, 126, 126);
+}
+
+.sucess input {
+  border: $greenBorder;
+}
+
+.error input {
+  border: $redBorder;
+}
+
+.sucess select {
+  border: $greenBorder;
+}
+
+.error select {
+  border: $redBorder;
+}
