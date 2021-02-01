@@ -1,0 +1,110 @@
+html,
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: Helvetica, sans-serif;
+}
+
+.header-container {
+  width: 100%;
+  background-color: #558655;
+  border-bottom: 3px solid #133613;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 0.5fr 3fr;
+  grid-template-areas: "feedback feedback" "form list";
+  row-gap: 2rem;
+  column-gap: 4rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: white;
+  padding-top: 2rem;
+  margin-left: 2rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  padding-bottom: 0.7rem;
+  margin-left: 2rem;
+}
+
+.feedback-container {
+  grid-area: feedback;
+  background-color: #558655;
+  width: 100%;
+  border-radius: 0.3rem;
+}
+
+.feedback {
+  font-weight: 600;
+  color: white;
+  padding: 0.5rem;
+}
+
+.product-form {
+  grid-area: form;
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "title" "name" "price" "year" "button";
+  row-gap: 0.3rem;
+  width: 100%;
+  padding: 1rem;
+  border: 3px solid #5d925d;
+  border-radius: 1rem;
+}
+
+h2 {
+  grid-area: title;
+  text-align: center;
+  color: #133613;
+}
+
+#name {
+  grid-area: name;
+  height: 80%;
+  border: 1px solid #acacac;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+#price {
+  grid-area: price;
+  height: 80%;
+  border: 1px solid #acacac;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+#year {
+  grid-area: year;
+  height: 80%;
+  border: 1px solid #acacac;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+#add-btn {
+  grid-area: button;
+  height: 100%;
+  border: 1px solid #acacac;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: #5d925d;
+  color: white;
+}
+
+.list-container {
+  grid-area: list;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,127 @@
+// GLOBAL
+
+html,
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Helvetica, sans-serif;
+}
+
+// LAYOUT
+
+.header-container {
+    width: 100%;
+    background-color: rgb(85, 134, 85);
+    border-bottom: 3px solid rgb(19, 54, 19);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 0.5fr 3fr;
+    grid-template-areas: 
+        "feedback feedback"
+        "form list"
+    ;
+    row-gap: 2rem;
+    column-gap: 4rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+// SECTIONS
+
+// Header
+.title {
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    padding-top: 2rem;
+    margin-left: 2rem;
+}
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    padding-bottom: 0.7rem;
+    margin-left: 2rem;
+}
+
+// Feedback
+.feedback-container {
+    grid-area: feedback;
+    background-color:rgb(85, 134, 85);
+    width: 100%;
+    border-radius: 0.3rem;;
+}
+
+.feedback {
+    font-weight: 600;
+    color:rgb(255, 255, 255);
+    padding: 0.5rem;
+}
+
+// Product form
+.product-form {
+    grid-area: form;
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "title"
+        "name"
+        "price"
+        "year"
+        "button"
+    ;
+    row-gap: 0.3rem;
+    width: 100%;
+    padding: 1rem;
+    border: 3px solid rgb(93, 146, 93);
+    border-radius: 1rem;
+}
+
+h2 {
+    grid-area: title;
+    text-align: center;
+    color: rgb(19, 54, 19)
+}
+
+#name {
+    grid-area: name;
+    height: 80%;
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+#price {
+    grid-area: price;
+    height: 80%;
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+#year {
+    grid-area: year;
+    height: 80%;
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+#add-btn {
+    grid-area: button;
+    height: 100%;
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 0.5rem;
+    outline: none;
+    background-color: rgb(93, 146, 93);
+    color: white;
+}
+
+// Product list 
+.list-container {
+    grid-area: list;
+    
+}
