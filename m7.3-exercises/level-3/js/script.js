@@ -135,6 +135,8 @@ function validateSearch() {
   const searchVal = document.getElementById("search-form-val");
   if (searchVal.classList.contains("sucess")) {
     $(".modal").modal("show");
+    searchForm.reset();
+    resetForm(searchVal);
   }
 }
 
@@ -147,6 +149,8 @@ function validateRegister() {
 
   if (emailVal.classList.contains("sucess") && password1Val.classList.contains("sucess") && password2Val.classList.contains("sucess") && provinceVal.classList.contains("sucess")) {
     $(".modal").modal("show");
+    registerForm.reset();
+    resetForm(emailVal, password1Val, password2Val, provinceVal);
   }
 }
 
@@ -157,12 +161,20 @@ function validateLogin() {
 
   if (email2Val.classList.contains("sucess") && password3Val.classList.contains("sucess")) {
     $(".modal").modal("show");
+    loginForm.reset();
+    resetForm(email2Val, password3Val);
   }
 }
 
-// Modal content
+// MODAL CONTENT FUNCTION
 function createContent(line, value) {
   const inputText = document.createElement("p");
   inputText.textContent = `${line} ${value}`;
   modalContent.appendChild(inputText);
+}
+
+// FORM RESET FUNCTION
+function resetForm(input1, input2, input3, input4) {
+  const inputs = [input1, input2, input3, input4];
+  inputs.forEach(item => item.classList.remove("sucess"));
 }
