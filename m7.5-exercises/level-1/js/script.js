@@ -6,7 +6,24 @@ class Product {
         this.price = price;
         this.year = year;
     }
-    
+    addProduct() {
+        const productList = document.querySelector(".list-container");
+
+        const productContainer = document.createElement("article");
+        const product = document.createElement("p");
+        const deleteButton = document.createElement("button");
+
+        productContainer.classList.add("product-container");
+        product.classList.add("product");
+        deleteButton.classList.add("delete-btn");
+
+        product.textContent = `Name: ${this.name} Price: ${this.price} Year: ${this.year}`;
+        deleteButton.textContent = "Delete";
+
+        productList.appendChild(productContainer);
+        productContainer.appendChild(product);
+        productContainer.appendChild(deleteButton);
+    }
 }
 
 // SUBMIT
@@ -28,27 +45,38 @@ function checkInputsSearch() {
     const nameValue = name.value.trim();
     const priceValue = price.value.trim();
     const yearValue = year.value.trim();
+
+    const nameRegex = /[ña-z]{2,25}/gi;
+    const priceRegex = /[0-9]/gi;
+    const yearRegex = /[0-9]{4}/gi;
   
-    if (nameValue.length < 3) {
-      setErrorFor(name, "Error");
+    if (!nameValue.match(nameRegex)) {
+      setErrorFor(name, "Name is not valid");
     } else {
       setSuccessFor(name);
       // function to add id to the object
     }
 
-    if (priceValue.length < 3) {
-      setErrorFor(price, "Error");
+    if (!priceValue.match(priceRegex)) {
+      setErrorFor(price, "Price is not valid");
     } else {
       setSuccessFor(price);
       // function to add id to the object
     }
 
-    if (yearValue.length < 3) {
-      setErrorFor(year, "Error");
+    if (!yearValue.match(yearRegex)) {
+      setErrorFor(year, "Year is not valid");
     } else {
       setSuccessFor(year);
       // function to add id to the object
     }
+    // only if valid create new product and display it
+    const product = new Product(nameValue, priceValue, yearValue);
+    product.addProduct();
+
+    // validateForm in here and pass product.addproduct as an argument?
+
+
   }
 
 // SUCCESS OR ERROR
