@@ -54,29 +54,21 @@ function checkInputsSearch() {
       setErrorFor(name, "Name is not valid");
     } else {
       setSuccessFor(name);
-      // function to add id to the object
     }
 
     if (!priceValue.match(priceRegex)) {
       setErrorFor(price, "Price is not valid");
     } else {
       setSuccessFor(price);
-      // function to add id to the object
     }
 
     if (!yearValue.match(yearRegex)) {
       setErrorFor(year, "Year is not valid");
     } else {
       setSuccessFor(year);
-      // function to add id to the object
     }
-    // only if valid create new product and display it
-    const product = new Product(nameValue, priceValue, yearValue);
-    product.addProduct();
 
-    // validateForm in here and pass product.addproduct as an argument?
-
-
+    validateForm(nameValue, priceValue, yearValue);
   }
 
 // SUCCESS OR ERROR
@@ -96,12 +88,14 @@ function setSuccessFor(input) {
 }
 
 // VALIDATE FORM
-function validateForm() {
+function validateForm(nameValue, priceValue, yearValue) {
     const nameVal = document.getElementById("name-container");
     const priceVal = document.getElementById("price-container");
     const yearVal = document.getElementById("year-container");
   
     if (nameVal.classList.contains("success") && priceVal.classList.contains("success") && yearVal.classList.contains("success")) {
+      const product = new Product(nameValue, priceValue, yearValue);
+      product.addProduct();
       productForm.reset();
       resetForm(nameVal, priceVal, yearVal);
     }
