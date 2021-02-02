@@ -1,3 +1,8 @@
+// VARIABLES
+
+$greenBorder: 2px solid rgb(121, 219, 121);
+$redBorder: 2px solid rgb(224, 126, 126);
+
 // GLOBAL
 
 html,
@@ -65,15 +70,15 @@ body {
 .product-form {
     grid-area: form;
     display: grid;
-    grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr 1fr 1.2fr;
     grid-template-areas: 
         "title"
-        "name"
-        "price"
-        "year"
+        "name-container"
+        "price-container"
+        "year-container"
         "button"
     ;
-    row-gap: 0.3rem;
+    row-gap: 0.5rem;
     width: 100%;
     padding: 1rem;
     border: 3px solid rgb(93, 146, 93);
@@ -86,42 +91,86 @@ h2 {
     color: rgb(19, 54, 19)
 }
 
-#name {
-    grid-area: name;
-    height: 80%;
-    border: 1px solid rgb(172, 172, 172);
-    border-radius: 0.5rem;
-    outline: none;
+#name-container {
+    grid-area: name-container;
 }
 
-#price {
-    grid-area: price;
-    height: 80%;
-    border: 1px solid rgb(172, 172, 172);
-    border-radius: 0.5rem;
-    outline: none;
+#price-container {
+    grid-area: price-container;
 }
 
+#year-container {
+    grid-area: year-container;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    height: 3.5rem;
+}
+
+#name, 
+#price, 
 #year {
-    grid-area: year;
-    height: 80%;
-    border: 1px solid rgb(172, 172, 172);
-    border-radius: 0.5rem;
+    height: 100%;
     outline: none;
 }
 
 #add-btn {
     grid-area: button;
     height: 100%;
-    border: 1px solid rgb(172, 172, 172);
+    border: none;
     border-radius: 0.5rem;
     outline: none;
     background-color: rgb(93, 146, 93);
     color: white;
 }
 
+#add-btn:hover {
+    background-color: rgb(35, 126, 13);
+    cursor: pointer;
+}
+
+small {
+    visibility: hidden;
+    margin-left: 0.5rem;
+}
+
 // Product list 
 .list-container {
     grid-area: list;
-    
+}
+
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid rgb(93, 146, 93);
+    border-radius: 1rem;
+}
+
+.delete-btn {
+    background-color: rgb(218, 96, 96);
+    border: none;
+    border-radius: 0.3rem;
+    color: white;
+}
+.delete-btn:hover {
+    background-color: rgb(196, 32, 32);
+    cursor: pointer;
+}
+
+// VALIDITY SETTINGS
+
+.error small {
+    visibility: visible;
+    color:rgb(224, 126, 126);
+}
+
+.success input {
+    border: $greenBorder;
+}
+
+.error input{
+    border: $redBorder;
 }

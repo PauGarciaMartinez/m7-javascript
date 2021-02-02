@@ -25,12 +25,21 @@
 
             <form class="product-form" action="" method="get">
                 <h2 class="form-title">Add a product</h2>
-                <label for="name"></label>
-                <input type="text" id="name" name="name" placeholder="Product Name">
-                <label for="price"></label>
-                <input type="text" id="price" name="price" placeholder="Product Price">
-                <label for="year"></label>
-                <input type="text" id="year" name="year" placeholder="Product Year">
+                <div id="name-container" class="form-group">
+                    <label for="name"></label>
+                    <input type="text" id="name" name="name" placeholder="Product Name">
+                    <small class="small1">Error</small>
+                </div>
+                <div id="price-container" class="form-group">
+                    <label for="price"></label>
+                    <input type="text" id="price" name="price" placeholder="Product Price">
+                    <small class="small2">Error</small>
+                </div>
+                <div id="year-container" class="form-group">
+                    <label for="year"></label>
+                    <input type="text" id="year" name="year" placeholder="Product Year">
+                    <small class="small3">Error</small>
+                </div>
                 <button type="submit" id="add-btn">Save</button>
             </form>
 
