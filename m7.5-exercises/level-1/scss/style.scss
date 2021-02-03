@@ -17,19 +17,19 @@ body {
 .header-container {
     width: 100%;
     background-color: rgb(85, 134, 85);
-    border-bottom: 3px solid rgb(19, 54, 19);
+    border-bottom: 3px solid rgb(255, 255, 255);
 }
 
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.5fr 2fr;
     grid-template-rows: 0.5fr 3fr;
     grid-template-areas: 
         "feedback feedback"
         "form list"
     ;
     row-gap: 2rem;
-    column-gap: 4rem;
+    column-gap: 3rem;
     width: 80%;
     margin: 0 auto;
     margin-top: 2rem;
@@ -53,16 +53,35 @@ body {
 }
 
 // Feedback
-.feedback-container {
+.feedback-wrapper {
     grid-area: feedback;
-    background-color:rgb(85, 134, 85);
+    width: 100%;
+}
+
+.feedback-container-success {
+    background-color:rgb(178, 233, 178);
+    display: flex;
+    width: 100%;
+    border-radius: 0.3rem;;
+}
+
+.feedback-container-failure {
+    background-color:rgb(233, 178, 178);
+    display: flex;
+    width: 100%;
+    border-radius: 0.3rem;;
+}
+
+.feedback-container-delete {
+    background-color:rgb(250, 243, 142);
+    display: flex;
     width: 100%;
     border-radius: 0.3rem;;
 }
 
 .feedback {
-    font-weight: 600;
-    color:rgb(255, 255, 255);
+    font-weight: 500;
+    color:rgb(49, 49, 49);
     padding: 0.5rem;
 }
 
@@ -79,10 +98,10 @@ body {
         "button"
     ;
     row-gap: 0.5rem;
-    width: 100%;
     padding: 1rem;
     border: 3px solid rgb(93, 146, 93);
     border-radius: 1rem;
+    box-shadow: 5px 5px 10px rgb(160, 160, 160);
 }
 
 h2 {
@@ -149,6 +168,7 @@ small {
     border: 3px solid rgb(93, 146, 93);
     border-radius: 1rem;
     margin-bottom: 1rem;;
+    box-shadow: 5px 5px 10px rgb(160, 160, 160);
 }
 
 .product {
@@ -183,4 +203,17 @@ small {
 
 .error input{
     border: $redBorder;
+}
+
+// MEDIA QUERIES
+@media only screen and (max-width: 900px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 3fr 3fr;
+        grid-template-areas: 
+            "feedback"
+            "form"
+            "list"
+        ;
+    }
 }

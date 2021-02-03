@@ -23,21 +23,66 @@ class Product {
         productList.appendChild(productContainer);
         productContainer.appendChild(product);
         productContainer.appendChild(deleteButton);
-    }
-}
 
-// SUBMIT
+        deleteButton.addEventListener("click", () => {
+            productContainer.remove();
+            resetFeedback();
+            this.showDelete();
+            setFullFeedback();
+        })
+    }
+    showSuccess() {
+        const feedbackWrapper = document.querySelector(".feedback-wrapper");
+        const feedbackContainer = document.createElement("article");
+        const feedback = document.createElement("p");
+
+        feedbackContainer.classList.add("feedback-container-success");
+        feedback.classList.add("feedback");
+        
+        feedback.textContent = "Product has been successfully added";
+        
+        feedbackWrapper.appendChild(feedbackContainer);
+        feedbackContainer.appendChild(feedback);
+    }
+    showFailure() {
+        const feedbackWrapper = document.querySelector(".feedback-wrapper");
+        const feedbackContainer = document.createElement("article");
+        const feedback = document.createElement("p");
+
+        feedbackContainer.classList.add("feedback-container-failure");
+        feedback.classList.add("feedback");
+        
+        feedback.textContent = "There are empty or invalid fields";
+        
+        feedbackWrapper.appendChild(feedbackContainer);
+        feedbackContainer.appendChild(feedback);
+    }
+    showDelete() {
+        const feedbackWrapper = document.querySelector(".feedback-wrapper");
+        const feedbackContainer = document.createElement("article");
+        const feedback = document.createElement("p");
+
+        feedbackContainer.classList.add("feedback-container-delete");
+        feedback.classList.add("feedback");
+        
+        feedback.textContent = "Product successfully deleted";
+        
+        feedbackWrapper.appendChild(feedbackContainer);
+        feedbackContainer.appendChild(feedback);
+    }
+};
+
+// SUBMIT AND DELETE
 
 const productForm = document.querySelector(".product-form");
 productForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  checkInputsSearch();
-  validateForm();
+  checkInputs();
 })
 
 // CHECK INPUTS
 
-function checkInputsSearch() {
+function checkInputs() {
     const name = document.getElementById("name");
     const price = document.getElementById("price");
     const year = document.getElementById("year");
@@ -69,7 +114,7 @@ function checkInputsSearch() {
     }
 
     validateForm(nameValue, priceValue, yearValue);
-  }
+}
 
 // SUCCESS OR ERROR
 
@@ -79,7 +124,7 @@ function setErrorFor(input, message) {
     small.innerText = message;
   
     formGroup.classList.add("error");
-  }
+}
   
 function setSuccessFor(input) {
     const formGroup = input.parentElement;
@@ -96,13 +141,36 @@ function validateForm(nameValue, priceValue, yearValue) {
     if (nameVal.classList.contains("success") && priceVal.classList.contains("success") && yearVal.classList.contains("success")) {
       const product = new Product(nameValue, priceValue, yearValue);
       product.addProduct();
+      resetFeedback();
+      product.showSuccess();
+      setFullFeedback();
       productForm.reset();
       resetForm(nameVal, priceVal, yearVal);
+    } else {
+      const product = new Product(nameValue, priceValue, yearValue);
+      resetFeedback();
+      product.showFailure();
+      setFullFeedback();
     }
-  }
+}
 
-// FORM RESET FUNCTION
+// RESET FUNCTIONS
 function resetForm(input1, input2, input3) {
     const inputs = [input1, input2, input3];
     inputs.forEach(item => item.classList.remove("success"));
+}
+
+function resetFeedback() {
+    const feedbackWrapper = document.querySelector(".feedback-wrapper");
+    if (feedbackWrapper.classList.contains("full")) {
+      while (feedbackWrapper.hasChildNodes()) {  
+        feedbackWrapper.removeChild(feedbackWrapper.firstChild);
+      }
+      feedbackWrapper.classList.remove("full");
+    }
+}
+  
+function setFullFeedback() {
+    const feedbackWrapper = document.querySelector(".feedback-wrapper");
+    feedbackWrapper.classList.add("full");
 }
