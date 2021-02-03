@@ -17,7 +17,7 @@ class Product {
         product.classList.add("product");
         deleteButton.classList.add("delete-btn");
 
-        product.textContent = `Name: ${this.name} Price: ${this.price}€ Year: ${this.year}`;
+        product.innerHTML = `<b>Name:</b> ${this.name} <b>Price:</b> ${this.price}€ <b>Year:</b> ${this.year}`;
         deleteButton.textContent = "Delete";
 
         productList.appendChild(productContainer);
