@@ -3,6 +3,12 @@
 $greenBorder: 2px solid rgb(121, 219, 121);
 $redBorder: 2px solid rgb(224, 126, 126);
 
+@mixin displayFeedback {
+    display: flex;
+    width: 100%;
+    border-radius: 0.3rem;;
+}
+
 // GLOBAL
 
 html,
@@ -43,6 +49,7 @@ body {
     color: rgb(255, 255, 255);
     padding-top: 2rem;
     margin-left: 2rem;
+    margin-top: 0rem;
 }
 .subtitle {
     font-size: 1.1rem;
@@ -59,24 +66,18 @@ body {
 }
 
 .feedback-container-success {
+    @include displayFeedback();
     background-color:rgb(178, 233, 178);
-    display: flex;
-    width: 100%;
-    border-radius: 0.3rem;;
 }
 
 .feedback-container-failure {
+    @include displayFeedback();
     background-color:rgb(233, 178, 178);
-    display: flex;
-    width: 100%;
-    border-radius: 0.3rem;;
 }
 
 .feedback-container-delete {
+    @include displayFeedback();
     background-color:rgb(250, 243, 142);
-    display: flex;
-    width: 100%;
-    border-radius: 0.3rem;;
 }
 
 .feedback {

@@ -28,6 +28,7 @@ body {
   color: white;
   padding-top: 2rem;
   margin-left: 2rem;
+  margin-top: 0rem;
 }
 
 .subtitle {
@@ -44,24 +45,24 @@ body {
 }
 
 .feedback-container-success {
-  background-color: #b2e9b2;
   display: flex;
   width: 100%;
   border-radius: 0.3rem;
+  background-color: #b2e9b2;
 }
 
 .feedback-container-failure {
-  background-color: #e9b2b2;
   display: flex;
   width: 100%;
   border-radius: 0.3rem;
+  background-color: #e9b2b2;
 }
 
 .feedback-container-delete {
-  background-color: #faf38e;
   display: flex;
   width: 100%;
   border-radius: 0.3rem;
+  background-color: #faf38e;
 }
 
 .feedback {

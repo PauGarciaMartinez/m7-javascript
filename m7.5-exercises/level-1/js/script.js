@@ -27,45 +27,19 @@ class Product {
         deleteButton.addEventListener("click", () => {
             productContainer.remove();
             resetFeedback();
-            this.showDelete();
+            this.showFeedback("feedback-container-delete", "Product successfully deleted");
             setFullFeedback();
         })
     }
-    showSuccess() {
+    showFeedback(containerClass, message) {
         const feedbackWrapper = document.querySelector(".feedback-wrapper");
         const feedbackContainer = document.createElement("article");
         const feedback = document.createElement("p");
 
-        feedbackContainer.classList.add("feedback-container-success");
+        feedbackContainer.classList.add(containerClass);
         feedback.classList.add("feedback");
         
-        feedback.textContent = "Product has been successfully added";
-        
-        feedbackWrapper.appendChild(feedbackContainer);
-        feedbackContainer.appendChild(feedback);
-    }
-    showFailure() {
-        const feedbackWrapper = document.querySelector(".feedback-wrapper");
-        const feedbackContainer = document.createElement("article");
-        const feedback = document.createElement("p");
-
-        feedbackContainer.classList.add("feedback-container-failure");
-        feedback.classList.add("feedback");
-        
-        feedback.textContent = "There are empty or invalid fields";
-        
-        feedbackWrapper.appendChild(feedbackContainer);
-        feedbackContainer.appendChild(feedback);
-    }
-    showDelete() {
-        const feedbackWrapper = document.querySelector(".feedback-wrapper");
-        const feedbackContainer = document.createElement("article");
-        const feedback = document.createElement("p");
-
-        feedbackContainer.classList.add("feedback-container-delete");
-        feedback.classList.add("feedback");
-        
-        feedback.textContent = "Product successfully deleted";
+        feedback.textContent = message;
         
         feedbackWrapper.appendChild(feedbackContainer);
         feedbackContainer.appendChild(feedback);
@@ -142,14 +116,14 @@ function validateForm(nameValue, priceValue, yearValue) {
       const product = new Product(nameValue, priceValue, yearValue);
       product.addProduct();
       resetFeedback();
-      product.showSuccess();
+      product.showFeedback("feedback-container-success", "Product has been successfully added");
       setFullFeedback();
       productForm.reset();
       resetForm(nameVal, priceVal, yearVal);
     } else {
       const product = new Product(nameValue, priceValue, yearValue);
       resetFeedback();
-      product.showFailure();
+      product.showFeedback("feedback-container-failure", "There are empty or invalid fields");
       setFullFeedback();
     }
 }
