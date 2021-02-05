@@ -26,9 +26,9 @@ class Product {
 
         deleteButton.addEventListener("click", () => {
             productContainer.remove();
-            resetFeedback();
             this.showFeedback("feedback-container-delete", "Product successfully deleted");
             setFullFeedback();
+            setTimeout(() => resetFeedback(), 3000);
         })
     }
     showFeedback(containerClass, message) {
@@ -115,9 +115,9 @@ function validateForm(nameValue, priceValue, yearValue) {
     if (nameVal.classList.contains("success") && priceVal.classList.contains("success") && yearVal.classList.contains("success")) {
       const product = new Product(nameValue, priceValue, yearValue);
       product.addProduct();
-      resetFeedback();
       product.showFeedback("feedback-container-success", "Product has been successfully added");
       setFullFeedback();
+      setTimeout(() => resetFeedback(), 3000);
       productForm.reset();
       resetForm(nameVal, priceVal, yearVal);
     } else {
@@ -125,6 +125,7 @@ function validateForm(nameValue, priceValue, yearValue) {
       resetFeedback();
       product.showFeedback("feedback-container-failure", "There are empty or invalid fields");
       setFullFeedback();
+      setTimeout(() => resetFeedback(), 2500);
     }
 }
 
